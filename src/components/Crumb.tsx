@@ -1,5 +1,5 @@
-import { useBreadcrumb } from './hooks/useBreadcrumb';
-import type { CrumbItem } from './BreadcrumbProvider';
+import { useBreadcrumb } from '../hooks/useBreadcrumb';
+import type { CrumbItem } from '../BreadcrumbsProvider';
 
 // Becase of the error: "Cannot update a component (`NextBreadcrumb`)
 // while rendering a different component", we cannot use useImmediateEffect to addItem

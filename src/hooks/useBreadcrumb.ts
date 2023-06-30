@@ -1,8 +1,8 @@
 import { useContext, useRef } from "react";
 import { useMount, useUnmount } from "react-use";
 
-import type { CrumbItem, ProviderPropType } from "../BreadcrumbProvider";
-import { BreadcrumbContext } from "../BreadcrumbProvider";
+import type { CrumbItem, ProviderPropType } from "../BreadcrumbsProvider";
+import { BreadcrumbContext } from "../BreadcrumbsProvider";
 
 export const useBreadcrumb = (item: CrumbItem) => {
   const itemRef = useRef(item);

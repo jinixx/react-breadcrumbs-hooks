@@ -5,8 +5,8 @@ import type {
   CrumbItem,
   ProviderPropType,
   SubscribeReturnType,
-} from "../BreadcrumbProvider";
-import { BreadcrumbContext } from "../BreadcrumbProvider";
+} from "../BreadcrumbsProvider";
+import { BreadcrumbContext } from "../BreadcrumbsProvider";
 
 export const useBreadcrumbItems = () => {
   const subscriptionRef = useRef<SubscribeReturnType>();

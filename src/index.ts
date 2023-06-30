@@ -3,8 +3,8 @@ export type {
   ProviderPropType,
   SubscribePropType,
   SubscribeReturnType,
-} from "./BreadcrumbProvider";
-export { default as BreadcrumbProvider } from "./BreadcrumbProvider";
-export { default as Crumb } from "./Crumb";
+} from "./BreadcrumbsProvider";
+export { default as BreadcrumbProvider } from "./BreadcrumbsProvider";
+export { default as Crumb } from "./components/Crumb";
 export { useBreadcrumb } from "./hooks/useBreadcrumb";
 export { useBreadcrumbItems } from "./hooks/useBreadcrumbItems";
