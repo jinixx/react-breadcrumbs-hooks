@@ -1,13 +1,12 @@
-import { useContext, useRef, useState } from 'react';
-import { useUnmount } from 'react-use';
-import useImmediateEffect from 'use-immediate-effect';
+import { useContext, useLayoutEffect, useRef, useState } from "react";
+import { useUnmount } from "react-use";
 
 import type {
   CrumbItem,
   ProviderPropType,
   SubscribeReturnType,
-} from '../BreadcrumbProvider';
-import { BreadcrumbContext } from '../BreadcrumbProvider';
+} from "../BreadcrumbProvider";
+import { BreadcrumbContext } from "../BreadcrumbProvider";
 
 export const useBreadcrumbItems = () => {
   const subscriptionRef = useRef<SubscribeReturnType>();
@@ -15,7 +14,7 @@ export const useBreadcrumbItems = () => {
   const { subscribe } = useContext<ProviderPropType>(BreadcrumbContext);
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-  useImmediateEffect(() => {
+  useLayoutEffect(() => {
     subscriptionRef.current = subscribe(setItems);
   }, []);
 
