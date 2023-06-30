@@ -1,6 +1,9 @@
 {
-  "name": "react-breadcrumbs-hooks",
-  "version": "0.0.1",
+  "name": "@jinixx/react-breadcrumbs-hooks",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/jinixx"
+  },
+  "version": "0.0.2",
   "description": "A React breadcrumbs library which is completely router independent based on React Context API. Will render crumb item as long as component is mounted. Link path is determined automatically based on parent path.",
   "repository": {
     "type": "git",
