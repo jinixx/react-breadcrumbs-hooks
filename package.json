@@ -1,0 +1,59 @@
+{
+  "name": "react-breadcrumbs-hooks",
+  "version": "0.0.1",
+  "description": "A React breadcrumbs library which is completely router independent based on React Context API. Will render crumb item as long as component is mounted. Link path is determined automatically based on parent path.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jinixx/react-breadcrumbs-hooks.git"
+  },
+  "keywords": [
+    "breadcrumbs",
+    "hooks",
+    "react",
+    "router",
+    "react-router",
+    "nextjs",
+    "context",
+    "independent"
+  ],
+  "author": "Jin <jinixx@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jinixx/react-breadcrumbs-hooks/issues"
+  },
+  "homepage": "https://github.com/oklas/react-breadcrumbs-hooks#readme",
+  "peerDependencies": {
+    "react": ">=16.3.0 || ^16.3.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "@rollup/plugin-terser": "^0.4.3",
+    "@rollup/plugin-typescript": "^8.3.3",
+    "@types/react": "^17.0.34",
+    "@typescript-eslint/eslint-plugin": "^5.60.1",
+    "@typescript-eslint/parser": "^5.60.1",
+    "eslint": "^8.43.0",
+    "jest-environment-jsdom": "^29.5.0",
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0",
+    "rollup": "^2.60.0",
+    "rollup-plugin-dts": "^4.0.1",
+    "tslib": "^2.6.0",
+    "typescript": "^4.4.4"
+  },
+  "dependencies": {
+    "react-use": "^17.4.0",
+    "use-immediate-effect": "^1.1.2"
+  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "rollup": "node --experimental-json-modules ./node_modules/.bin/rollup --config rollup.config.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
