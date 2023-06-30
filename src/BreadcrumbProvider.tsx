@@ -24,7 +24,7 @@ export const BreadcrumbContext = createContext<ProviderPropType>(
   {} as ProviderPropType,
 );
 
-export function BreadcrumbProvider({ children }: { children: ReactNode }) {
+export default function BreadcrumbProvider({ children }: { children: ReactNode }) {
   const itemsRef = useRef<CrumbItem[]>([]);
   const listernersRef = useRef<SubscribePropType[]>([]);
 

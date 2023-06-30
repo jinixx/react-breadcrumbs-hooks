@@ -1,5 +1,5 @@
-import { useContext, useLayoutEffect, useRef, useState } from "react";
-import { useUnmount } from "react-use";
+import { useContext, useRef, useState } from "react";
+import { useMount, useUnmount } from "react-use";
 
 import type {
   CrumbItem,
@@ -13,10 +13,9 @@ export const useBreadcrumbItems = () => {
   const [items, setItems] = useState<CrumbItem[]>([]);
   const { subscribe } = useContext<ProviderPropType>(BreadcrumbContext);
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-  useLayoutEffect(() => {
+  useMount(() => {
     subscriptionRef.current = subscribe(setItems);
-  }, []);
+  });
 
   useUnmount(() => {
     if (subscriptionRef.current) subscriptionRef.current.unsubscribe();
