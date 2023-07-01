@@ -5,9 +5,14 @@ type SubscribeReturn = {
   unsubscribe: () => void;
 };
 
+export type CrumbProps = {
+  [key: string]: unknown;
+};
+
 export type CrumbItem = {
   title: string | ReactNode;
-  path?: string;
+  path: string;
+  crumbProps?: CrumbProps;
 };
 
 export type SubscribeReturnType = SubscribeReturn | undefined;

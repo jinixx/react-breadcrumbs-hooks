@@ -1,5 +1,6 @@
 export type {
   CrumbItem,
+  CrumbProps,
   ProviderPropType,
   SubscribePropType,
   SubscribeReturnType,
