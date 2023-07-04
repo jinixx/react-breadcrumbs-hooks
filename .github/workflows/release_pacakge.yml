@@ -20,13 +20,16 @@ jobs:
           registry-url: https://registry.npmjs.org/
           node-version: "16"
 
-      # Install dependencies (required by Run tests step)
-      #- name: Install dependencies
-      #  run: yarn install
+      - name: Install dependencies
+        run: npm install
 
       # Tests
       #- name: Run tests
       #  run: yarn test
+
+      # Build
+      - name: Build
+        run: npm run rollup
 
       # Configure Git
       - name: Git configuration
@@ -94,6 +97,10 @@ jobs:
           version: ${{ env.NEW_VERSION }}
           operation: read
 
+      # zip release
+      - name: Zip the build
+        run: zip -r react-breadcrumbs-hooks-${{ env.NEW_VERSION }}.zip dist
+
       # Update GitHub release with changelog
       - name: Update GitHub release documentation
         uses: softprops/action-gh-release@v1
@@ -101,5 +108,6 @@ jobs:
           tag_name: ${{ env.NEW_VERSION }}
           body: ${{ steps.get-changelog.outputs.changelog }}
           prerelease: ${{ startsWith(github.event.inputs.release-type, 'pre') }}
+          files: react-breadcrumbs-hooks-*.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
