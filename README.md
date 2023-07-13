@@ -2,15 +2,19 @@
 
 A React breadcrumbs library which is completely router independent based on React Context API. The crumb item is rendered as long as component is mounted. Link path is determined automatically based on parent component.
 
-Demo coming soon.
+See Storybook for demo.
 
-## Props
+```sh
+npm run storybook
+```
+
+## Crumb component props
 
 | Props       | Description |
 | ----------- | ----------- |
-| title       | String | ReactNode          |
-| path        | String                      |
-| crumbProps? | { [key: string]: unknown; } |
+| title       | ReactNode   |
+| path        | String      |
+| crumbProps? | T           |
 
 ## Usage
 
@@ -65,11 +69,11 @@ const Layout = ({ children }) => {
 // Child page eg. Preferences
 // Example with children, it could also be sub route definition
 // This will render 'Home > Preferences'
-// isLink false will not render as crumb item as link
+// isLink false will not render crumb item as link
 const Preferences = ({ children }) => {
   return (
     <>
-      <Crumb title="Preferences" path="/preferences" />
+      <Crumb title="Preferences" path="/preferences" isLink={false} />
       <div>
         Preferences content
         ...
@@ -93,8 +97,8 @@ const Notifications = ({ children }) => {
 
 ## Installation
 
-``` sh
-npm install --save react-breadcrumbs-hooks
+```sh
+npm install --save @jinixx/react-breadcrumbs-hooks
 ```
 
 ## Credit
@@ -103,6 +107,6 @@ The original code was from [Pedro Alves](https://codesandbox.io/s/react-breadcru
 
 The original idea was to use useBreadcrumb hook to declare crumb item. However the approach causes a big red warning (Can not update a component... while rendering a different component) in React when setting state in hook, which breadcrumb item should re-render. The solution as to change useImmediateEffect to useEffect. However, changing it to useEffect will not work as the sequence of calling the hook is not from parent to child, see [https://github.com/facebook/react/issues/15281#issuecomment-479098168](https://github.com/facebook/react/issues/15281#issuecomment-479098168) and [https://stackoverflow.com/questions/69340168/react-hooks-child-component-useeffect-executes-first-before-parent-component](https://stackoverflow.com/questions/69340168/react-hooks-child-component-useeffect-executes-first-before-parent-component), hence one of the workable solution is to render it without a child, hence the calling sequence is correct.
 
-## LICENSE
+## License
 
-### [ISC](./LICENSE.md)
+[ISC](./LICENSE.md)

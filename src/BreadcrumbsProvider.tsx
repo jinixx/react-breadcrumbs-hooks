@@ -1,18 +1,9 @@
 import type { Dispatch, ReactNode, SetStateAction } from 'react';
 import { createContext, useCallback, useMemo, useRef } from 'react';
+import type { CrumbItem } from './components/Crumb';
 
 type SubscribeReturn = {
   unsubscribe: () => void;
-};
-
-export type CrumbProps = {
-  [key: string]: unknown;
-};
-
-export type CrumbItem = {
-  title: string | ReactNode;
-  path: string;
-  crumbProps?: CrumbProps;
 };
 
 export type SubscribeReturnType = SubscribeReturn | undefined;
