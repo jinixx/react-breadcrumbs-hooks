@@ -2,11 +2,11 @@ import { useContext, useRef, useState } from "react";
 import { useMount, useUnmount } from "react-use";
 
 import type {
-  CrumbItem,
   ProviderPropType,
   SubscribeReturnType,
 } from "../BreadcrumbsProvider";
 import { BreadcrumbContext } from "../BreadcrumbsProvider";
+import type { CrumbItem } from "../components/Crumb";
 
 export const useBreadcrumbItems = () => {
   const subscriptionRef = useRef<SubscribeReturnType>();

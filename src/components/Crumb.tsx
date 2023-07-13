@@ -14,7 +14,7 @@ export type CrumbItem<T = never> = {
 // To ensure calling sequence from parent to child, we must render in it return,
 // hence this solution.
 export default function Crumb<T>(crumbProps: CrumbItem<T>) {
-  useBreadcrumb(crumbProps);
+  useBreadcrumb(crumbProps as CrumbItem);
 
   return null;
 }
