@@ -18,12 +18,17 @@ npm run storybook
 
 ## Usage
 
-```js
-// layout.tsx or main.tsx where you want to render the breadcrumbs
-// this is most likely your base layout
-// showing example with children in could also be route definition
-// This will render 'Home'
-import { BreadcrumbProvider, Crumb, useBreadcrumbItems } from 'react-breadcrumbs-hooks';
+Creating your Breadcrumb component and use it anywhere within provider.
+
+```tsx
+// MyBreadcrumb.tsx
+import { Breadcrumb as AntdBreadcrumb } from 'antd';
+import type {
+  BreadcrumbItemType,
+  BreadcrumbSeparatorType,
+} from 'antd/es/breadcrumb/Breadcrumb';
+import { BreadcrumbProvider, Crumb, useBreadcrumbItems } from '@jinixx/react-breadcrumbs-hooks';
+import type { CrumbItem } from '@jinixx/react-breadcrumbs-hooks';
 
 // rendering function for antd
 function renderCrumb(
@@ -46,14 +51,19 @@ const Breadcrumb = () => {
   const items = useBreadcrumbItems();
 
   return (
-    <Breadcrumb
+    <AntdBreadcrumb
       items={items}
       itemRender={renderCrumb}
       aria-label="breadcrumb"
     />
   );
 }
+```
 
+Using the custom Breadcrumb component and `Crumb` directly.
+
+```tsx
+// Layout.tsx 
 const Layout = ({ children }) => {
   return (
     <BreadcrumbProvider>
@@ -65,15 +75,35 @@ const Layout = ({ children }) => {
     </BreadcrumbProvider>
   )
 }
+```
 
-// Child page eg. Preferences
-// Example with children, it could also be sub route definition
-// This will render 'Home > Preferences'
-// isLink false will not render crumb item as link
+### Typed customProps
+
+Instead of using `Crumb` directly, it can also be used with `customProps` typed.
+
+```tsx
+// MyCrumb.tsx
+import type { CrumbItem } from '@jinixx/react-breadcrumbs-hooks';
+import { Crumb } from '@jinixx/react-breadcrumbs-hooks';
+
+export type CustomProps = {
+  isLink?: boolean;
+}
+
+export type MyCrumbItem = CrumbItem<CustomProps>;
+
+export const MyCrumb = (props: MyCrumbItem): null => Crumb<CustomProps>(props);
+```
+
+Using `MyCrumb` custom component, in this example `isLink` false will not render crumb item as link.
+
+```tsx
+// Example page usage
+// Preferences.tsx
 const Preferences = ({ children }) => {
   return (
     <>
-      <Crumb title="Preferences" path="/preferences" isLink={false} />
+      <MyCrumb title="Preferences" path="/preferences" isLink={false} />
       <div>
         Preferences content
         ...
@@ -82,13 +112,16 @@ const Preferences = ({ children }) => {
     </>
   )
 }
+```
 
-// nested child page eg. Notifications
-// This will render 'Home > Preferences > Notifications'
+Nested children. In case where `Notifications` is a child route of `Preferences`, the route will be constructed automatically. Eg. `/preferences/notications`.
+
+```tsx
+// Notifications.tsx
 const Notifications = ({ children }) => {
   return (
     <div>
-      <Crumb title="Notifications" path="/notifications" />
+      <MyCrumb title="Notifications" path="/notifications" />
       Notifications content
     </div>
   )
