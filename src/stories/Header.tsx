@@ -13,7 +13,7 @@ const MyBreadcrumbs = () => {
   const renderCrumb = (
     item: Partial<BreadcrumbItemType & BreadcrumbSeparatorType & MyCrumbItem>,
     params: unknown,
-    items: Partial<BreadcrumbItemType & BreadcrumbSeparatorType>[],
+    items: Partial<BreadcrumbItemType & BreadcrumbSeparatorType & MyCrumbItem>[],
     paths: string[],
   ) => {
     const last = items.indexOf(item) === items.length - 1;
