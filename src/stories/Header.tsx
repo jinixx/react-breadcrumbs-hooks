@@ -1,39 +1,7 @@
-import { Breadcrumb } from 'antd';
-import { BreadcrumbItemType, BreadcrumbSeparatorType } from 'antd/es/breadcrumb/Breadcrumb';
 import { Link } from 'react-router-dom';
-
-import { MyCrumbItem } from './MyCrumb';
-import { useBreadcrumbItems } from '../hooks/useBreadcrumbItems';
+import { Breadcrumb } from './Breadcrumb';
 
 import './header.css';
-
-const MyBreadcrumbs = () => {
-  const items = useBreadcrumbItems();
-
-  const renderCrumb = (
-    item: Partial<BreadcrumbItemType & BreadcrumbSeparatorType & MyCrumbItem>,
-    params: unknown,
-    items: Partial<BreadcrumbItemType & BreadcrumbSeparatorType & MyCrumbItem>[],
-    paths: string[],
-  ) => {
-    const last = items.indexOf(item) === items.length - 1;
-
-    return last || item.customProps?.isLink === false ? (
-      <span>{item.title}</span>
-    ) : (
-      <Link to={paths.join('/') || '/'}>{item.title}</Link>
-    );
-  }
-
-  return (
-    <Breadcrumb
-      items={items}
-      itemRender={renderCrumb}
-      aria-label="breadcrumb"
-      className="breadcrumb"
-    />
-  );
-}
 
 const Logo = () => (
   <div className="logo">
@@ -65,7 +33,7 @@ export const Header = () => {
           <Link to="/">
             <Logo />
           </Link>
-          <MyBreadcrumbs />
+          <Breadcrumb />
         </div>
       </div>
     </header>

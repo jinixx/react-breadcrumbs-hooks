@@ -2,13 +2,13 @@ import { Outlet, useLocation } from 'react-router';
 import { Link, type RouteObject } from 'react-router-dom';
 
 import { Header } from './Header';
-import { MyCrumb } from './MyCrumb';
-import BreadcrumbProvider from '../BreadcrumbsProvider';
+import { Crumb } from './Breadcrumb';
+import { BreadcrumbProvider } from '..';
 
 export const NestedChild = () => {
   return (
     <section style={{ padding: '20px' }}>
-      <MyCrumb title="Nested child" path="/nested-child" />
+      <Crumb title="Nested child" path="/nested-child" />
       Nested Child component
       <Outlet />
     </section>
@@ -18,7 +18,7 @@ export const NestedChild = () => {
 export const Child = () => {
   return (
     <section style={{ padding: '20px' }}>
-      <MyCrumb title="Child" path="/child" customProps={{ isLink: false }} />
+      <Crumb title="Child" path="/child" customProps={{ isLink: false }} />
       Child component
       <p>The breadcrumb link for this is disabled with a custom prop.</p>
       <Outlet />
@@ -29,7 +29,7 @@ export const Child = () => {
 export const Parent = () => {
   return (
     <section style={{ padding: '20px' }}>
-      <MyCrumb title="Parent" path="/parent" />
+      <Crumb title="Parent" path="/parent" />
       Parent component
       <Outlet />
     </section>
@@ -48,7 +48,7 @@ export const Layout = () => {
 
   return (
     <BreadcrumbProvider>
-      <MyCrumb title="Home" path="/" />
+      <Crumb title="Home" path="/" />
       <Header />
       <div className="storybook-page" style={{ display: 'flex', flexDirection: 'row', width: '100%', margin: 0 }}>
         <div className="sidebar" style={{ paddingRight: '20px', borderRight: '1px solid #dddddd', width: '250px', flex: '250px 0 0' }}>
