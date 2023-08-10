@@ -23,8 +23,7 @@
   },
   "homepage": "https://github.com/oklas/react-breadcrumbs-hooks#readme",
   "peerDependencies": {
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0"
+    "react": "16.8.0 - 18"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.1",
