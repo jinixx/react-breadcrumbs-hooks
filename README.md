@@ -1,12 +1,8 @@
-# react-breadcrumbs-hooks
+# @jinixx/react-breadcrumbs-hooks
 
 A React breadcrumbs library which is completely router independent based on React Context API. The crumb item is rendered as long as component is mounted. Link path is determined automatically based on parent component.
 
 See Storybook for demo.
-
-```sh
-npm run storybook
-```
 
 ## Crumb component props
 
