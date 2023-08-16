@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/jinixx/react-breadcrumbs-hooks/issues"
   },
-  "homepage": "https://github.com/oklas/react-breadcrumbs-hooks#readme",
+  "homepage": "https://github.com/jinixx/react-breadcrumbs-hooks#readme",
   "peerDependencies": {
     "react": "16.8.0 - 18"
   },
